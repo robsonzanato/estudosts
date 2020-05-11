@@ -1,9 +1,9 @@
-type Conta = {( money: number, deposit: number) => number};
-type Eumesmo = {(name: string, bankAccount:Conta, hobbies:string[]) => any[]};
+type Conta = { money: number, deposit: (valor:number) => void};
+type Eumesmo = {name: string, bankAccount:Conta, hobbies:string[]) };
 
 let bankAccount:Conta = {
     money: 2000,
-    deposit(value) {
+    deposit(value:number): void {
         this.money += value;
     }
 };
@@ -14,6 +14,6 @@ let myself:Eumesmo = {
     hobbies: ["Sports", "Cooking"]
 };
 
-myself.bankAccount.deposit(5000);
+myself.bankAccount.deposit(7000);
 
 console.log(myself);

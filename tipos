@@ -1,0 +1,19 @@
+type Conta = {( money: number, deposit: number) => number};
+type Eumesmo = {(name: string, bankAccount:Conta, hobbies:string[]) => any[]};
+
+let bankAccount:Conta = {
+    money: 2000,
+    deposit(value) {
+        this.money += value;
+    }
+};
+
+let myself:Eumesmo = {
+    name: "Max",
+    bankAccount: bankAccount,
+    hobbies: ["Sports", "Cooking"]
+};
+
+myself.bankAccount.deposit(5000);
+
+console.log(myself);
